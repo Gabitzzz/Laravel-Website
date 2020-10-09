@@ -77,6 +77,11 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class)->latest();
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
     public function path($append = '')
     {
         $path = route('profile', $this->username);

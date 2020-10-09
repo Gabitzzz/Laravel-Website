@@ -50,4 +50,17 @@ class ProfilesController extends Controller
 
         return redirect($user->path());
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        // Search in the title and body columns from the posts table
+        $users = User::query()
+            ->where('username', 'LIKE', "%{$search}%")
+            ->get();
+    
+        // Return the search view with the resluts compacted
+        return view('components.search', compact('users'));
+    }
 }

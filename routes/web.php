@@ -3,6 +3,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\User;
+use Illuminate\Http\Client\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/tweets', 'TweetsController@index')->name('home');
     Route::post('/tweets', 'TweetsController@store');
 
+
     Route::get('/tweets/{tweet:id}/edit', 'TweetsController@edit')->name('tweet.edit');
     Route::patch('/tweets/{tweet:id}', 'TweetsController@update')->name('tweet.update');
 
@@ -31,6 +34,8 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/tweets/{tweet}/like', 'TweetLikesController@store');
     Route::delete('/tweets/{tweet}/like', 'TweetLikesController@destroy');
+
+    Route::get('/tweets/search', 'ProfilesController@search')->name('search');
 
 
     Route::post(
@@ -49,12 +54,16 @@ Route::middleware('auth')->group(function(){
         'ProfilesController@update'
     )->middleware('can:edit,user');
 
+
     Route::get(
         '/explore', 
         'ExploreController'
     );
 
+
+
 });
+
 
 Route::get(
     '/profiles/{user:username}', 
