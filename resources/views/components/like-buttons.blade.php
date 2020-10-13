@@ -3,7 +3,7 @@
         action="http://localhost/Laravel/tweety/public/tweets/{{ $tweet->id }}/like">
         @csrf
 
-        <div class="flex items-center mr-4 {{ $tweet->isLikedBy(current_user()) ? 'text-blue-500' : 'text-gray-500' }}">
+        <div class="flex items-center mr-4 {{ $tweet->isLikedBy(current_user()) ? 'text-blue-500' : 'text-gray-500' }}" style="padding-left: 4vw;">
             <svg viewBox="0 0 20 20"
                 class="mr-1 w-3"
             >

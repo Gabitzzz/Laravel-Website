@@ -60,6 +60,7 @@ Route::middleware('auth')->group(function(){
         'ExploreController'
     );
 
+    Route::post('/comment/store', 'CommentsController@store')->name('comment.add');
 
 
 });

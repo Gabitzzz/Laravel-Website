@@ -18,7 +18,7 @@ class Tweet extends Model
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
     }
 
     public function path($append = '')

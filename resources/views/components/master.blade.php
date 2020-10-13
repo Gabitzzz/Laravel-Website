@@ -107,9 +107,21 @@
             </div> --}}
 
 
-            <form action="{{ route('search') }}" method="GET">
-                <input type="text" name="search" required/>
-                <button type="submit">Search</button>
+            <form action="{{ route('search') }}" 
+                    method="GET"
+            >
+
+                <input type="text" 
+                        name="search"
+                        style="padding-left:1vw; 
+                                border: 1px solid #4299e1;
+                                padding-right:10vw;"
+                        class="rounded-full mr-2xl"
+                        placeholder="search" 
+                        required/>
+
+                <button class="bg-blue-500 hover:bg-blue-700 rounded-lg shadow px-10 text-sm text-white h-12"
+                        type="submit">Search</button>
             </form>
          
         </nav>
