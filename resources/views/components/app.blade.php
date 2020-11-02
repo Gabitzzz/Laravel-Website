@@ -6,7 +6,6 @@
                 
                 @if (auth()->check())
                     <div class="lg:w-32">
-                        @include('_sidebar-links')
                     </div>
                 @endif
                 

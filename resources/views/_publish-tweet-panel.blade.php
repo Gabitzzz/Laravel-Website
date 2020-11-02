@@ -1,4 +1,4 @@
-<div class="border border-blue-400 rounded-lg px-8 py-6 mb-8">
+<div class="rounded-lg px-8 py-6 mb-8" style="margin-top: 1vw; border: 1px solid #4299e1;">
     <form method="POST" 
             action="{{ route('home') }}"
             enctype="multipart/form-data">
@@ -25,26 +25,31 @@
       </div>
 
 
-      <hr class="my-4">
+      <hr style="border-top: 1px solid #4299e1;">
+
 
       <footer class="flex justify-between items-center">
-            <div style="display: flex;">
+            
+            <div class="rounded-full mr-2-xl"
+                  style="display: flex; border: 1px solid #4299e1">
                   <img src="{{ auth()->user()->avatar}}" 
                         style="width: 40px; height: 40px" 
                         class="rounded-full mr-2" 
                         alt="ur avatar"
                   >
 
-                  <h5>
+                  <a href="{{ auth()->user()->path() }}">
+                      <h5 style="padding-right:2vw; padding-top:0.5vw;">
                         {{ auth()->user()->username}}
-                  </h5>
+                      </h5>
+                  </a>
             </div>
             
 
             <button type="submit"
                   class="bg-blue-500 hover:bg-blue-700 rounded-lg shadow px-10 text-sm text-white h-10"
-                  >
-            P O S T
+            >
+                  P O S T
             </button>
 
       </footer>

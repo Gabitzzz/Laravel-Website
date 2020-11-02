@@ -12,10 +12,10 @@
                 style="display:flex;
                 border: 1px solid #4299e1;">
                 
-            <div class="mr-2" style="flex-shrink:0;">
+            <div style="flex-shrink:0;">
                 <a href="{{ $tweet->user->path() }}">
                         <img src="{{ $tweet->user->avatar }}" 
-                            style="height: 60px" 
+                            style="height: 65px" 
                             class="rounded-full mr-2" 
                             alt=""
                         >    
@@ -26,22 +26,16 @@
 
         
 
-            <div style="padding-right: 5vw;">
+            <div style="padding-right: 2vw;">
 
                 <h5 class="font-bold"
                     style="margin-top:1vw"
                 >
                     <a href="{{ $tweet->user->path() }}">
-                        {{ $tweet->user->name}}
+                        {{ $tweet->user->username}}
                     </a>
                 </h5>
             
-                @if ($tweet->image != NULL)
-                    <div class="col-4">
-                        <img src= {{ asset('storage/' . $tweet->image )}}>
-                    </div>
-                @endif         
-
             </div> 
 
         </div>
@@ -64,6 +58,18 @@
         <p class="text-sm mb-3 ">
             {{ $tweet->body }}
         </p>
+        
+        <p class="text-xs"
+            style="text-align: right;">
+            Posted {{ $tweet->created_at->format('d/m/Y')}}
+         </p>
+
+        @if ($tweet->image != NULL)
+            <div class="">
+                <img src= {{ asset('storage/' . $tweet->image )}}>
+            </div>
+        @endif
+
     </div>
 
     <hr style="border-top: 1px solid #4299e1;">

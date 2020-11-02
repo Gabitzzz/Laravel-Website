@@ -16,7 +16,7 @@
          >
      </div>
 
-      <div class="flex justify-between items-center mb-6">
+      <div class="flex justify-between items-center mb-0">
          <div style="max-width: 270px">
                <h2 class="font-bold text-2xl mb-0">
                   {{  $user->username }}
@@ -35,8 +35,13 @@
            @can ('edit', $user)
                <a
                   href="{{ $user->path('edit') }}"
-                  class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2">
-                  Edit Profile
+                  class="py-2 px-4 text-black text-xs mr-2">
+                     <button type="button"  
+                              class="bg-green-500 hover:bg-green-700 rounded-lg shadow px-10 text-sm text-white h-10"
+                              style="color: white; "
+                     >
+                        Edit Profile
+                     </button>
                </a>   
            @endcan
 
@@ -45,9 +50,8 @@
          </div>
       </div>
 
-      <h4>
-         {{$user->description}}
-      </h4>
+   
+      
 
       
    </header>
